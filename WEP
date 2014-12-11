@@ -1,0 +1,74 @@
+Security Attacks against wireless networks
+
+The main difference between wired and wireless networks is the medium it transfers its data through. This difference made the burden of securing the network heavier. The broadcast nature of wireless networks makes it easy for everyone to attack the network if not secured, due to the absence of physical barriers, where the range of wireless transmission ranges from 300 ft. to half a mile [Arbaugh2003].
+
+Below is a list of the most common attack types known in both wired and wireless networks. Most of the security attacks and threats are listed under the following categories:
+
+Traffic Analysis
+
+In this type of attacks the attacker uses the statistics of network connectivity and activity to find information about the attacked network. Information includes: AP location, AP SSID and the type of protocol used by the analysis of size and types of packets [Welch2003].
+
+Passive Eavesdropping
+
+Attackers in this type set themselves in sniffing mode, where they listen to all the network traffic hoping to extract information from it. This type of attack is only useful with unencrypted networks and stream cipher encrypted ones.
+
+Active Eavesdropping
+
+Similar to passive eavesdropping but the attacker tries to change the data on the packet, or to inject a complete packet in the stream of data.
+
+Unauthorized Access
+
+This type of attack is also known by many other names, such as war driving, war walking, and war flying [Earle2005]. This is the most common attack type where the attacker tries to get access to a network that she is not authorized to access. Mainly the reason behind such attacks is just to get Internet access for free [Potter2003].
+
+Man-in-the-middle Attacks
+
+In this attack, the attacker gets the packets before the intended receiver does. This allows her to change the content of the message. One of the most known subset of this attack is called ARP (Address Resolution Protocol) attacks, where the attacker redirects network traffic to pass through her device [Welch2003].
+
+Session Hijacking
+
+The attacker attacks the integrity of the session by trying to hijack an authorized session from an authorized user.
+
+Replay Attacks
+
+In this type of attack the attacker uses the information from previous authenticated sessions to gain access to the network.
+
+Rouge AP
+
+Some of the devices allow the user to declare itself as an AP. This will make people confused and sometimes they may connect to this false AP exposing their information to it. This can be solved by imposing mutual authentication between AP and network devices.
+
+DoS Attacks
+
+DoS (Denial of Service) attacks are the hardest type of attacks to overcome. Attackers use frequency devices to send continuous noise on a specific channel to ruin network connectivity. It is known in the wireless world as RF Jamming [Welch2003].
+
+There are many other threats that can be placed under one of the categories above. These different types of attacks make it harder for the standard regulators to find the best way to come up with the best solutions to the security hazards without sacrificing network usability or speed. In this section we discussed the common concepts in security, the wireless world and the common security attacks against networks in both wired and wireless networks. This section should have provided enough information to go through the following sections.
+
+Wired Equivalent Privacy (WEP): The original encryption protocol developed for wireless networks. As its name implies, WEP was designed to provide the same level of security as wired networks. However, WEP has many well-known security flaws, is difficult to configure, and is easily broken.
+
+WEP's Major Weakness
+WEP's major weakness is its use of static encryption keys. When you set up a router with a WEP encryption key, that one key is used by every device on your network to encrypt every packet that's transmitted. But the fact that packets are encrypted doesn't prevent them from being intercepted, and due to some esoteric technical flaws it's entirely possible for an eavesdropper to intercept enough WEP-encrypted packets to eventually deduce what the key is.
+This problem used to be something you could mitigate by periodically changing the WEP key (which is why routers generally allow you to store up to four keys). But few bother to do this because changing WEP keys is inconvenient and time-consuming because it has to be done not just on the router, but on every device that connects to it. As a result, most people just set up a single key and then continue using it ad infinitum.
+Even worse, for those that do change the WEP key, new research and developments reinforce how even changing WEP keys frequently is no longer sufficient to protect a WLAN. The process of 'cracking' a WEP key used to require that a malicious hacker intercept millions of packets plus spend a fair amount of time and computing power. Researchers in the computer science department of a German university recently demonstrated the capability to compromise a WEP-protected network very quickly. After spending less than a minute intercepting data (fewer than 100,000 packets in all) they were able to compromise a WEP key in just three seconds.
+
+The Widespread Use of WEP
+Widespread use of WEP is almost understandable given that to the layperson, the similar abbreviations WEP and WPA don't convey any meaningful difference between the two security methods (and they may even imply equivalence) Plus, WEP is almost always presented first by the security interface of most broadband routers since WEP comes before WPA both historically and alphabetically).
+
+Security Issues with WEP (Wired Equivalent Privacy) was proven to be full of flaws back in 2001. WEP protocol itself has some weaknesses that allows the attackers to crack them in no time. Probably, the biggest flaw in a WEP key is that it supports only 40bit encryption. This means that there are only 16million possibilities. 
+
+Attacks of WEP:
+
+Fluhrer, Mantin, and Shamir[2002] present several weaknesses in the key scheduling algorithm of RC4, and describe their cryptanalytic significance. They identify a large number of weak keys, in which knowledge of a small number of key bits suffices to determine many state and output bits with non-negligible probability. They use these weak keys to construct new distinguishers for RC4, and to mount related key attacks with practical complexities. They show that RC4 is completely insecure in a common mode of operation which is used in the widely deployed Wired Equivalent Privacy protocol (WEP, which is part of the 802.11 standard), in which a fixed secret key is concatenated with known IV modifiers in order to encrypt different messages. Our new passive ciphertext-only attack on this mode can recover an arbitrarily long key in a negligible amount of time which grows only linearly with its size, both for 24 and
+128 bit IV modifiers.
+
+Adam Stubblefield et al. implemented Fluhrer, Mantin, and Shamir’s attack [FMS2002] against WEP, the link-layer security protocol for 802.11 networks. They were able to recover the 128 bit secret key used with a passive attack. The WEP standard uses RC4 IVs improperly, and the attack exploits this design failure. They make some optimizations to make the attack more efficient, conclude that 802.11 WEP is totally insecure.
+
+Itsik Mantin revisit a known but ignored weakness of the RC4 keystream generator, where secret state info leaks to the generated keystream, and show that this leakage, also known as Jenkins’ correlation or the RC4 glimpse, can be used to attack RC4 in several modes. Their main result is a practical key recovery attack on RC4 when an IV modifier is concatenated to the beginning of a secret root key to generate a session key. As opposed to the WEP attack from [FMS2002] the new attack is applicable even in the case where the first 256 bytes of the keystream are thrown and its complexity grows only linearly with the length of the key. In an exemplifying parameter setting the attack recovers a 16-byte key in 248 steps using 217 short keystreams generated from different chosen IVs. A second attacked mode is when the IV succeeds the secret root key. They mount a key recovery attack that recovers the secret root key by analyzing a single word from 222 keystreams generated from different IVs, improving the attack from [FMS2002] on this mode. A third result is an attack on RC4 that is applicable when the attacker can inject faults to the execution of RC4. The attacker derives the internal state and the secret key by analyzing 214 faulted keystreams generated from this key.
+
+Tews[2007] demonstrated an active attack on the WEP protocol that is able to recover a 104-bit WEP key using less than 40,000 frames with a success probability of 50%. In order to succeed in 95% of all cases, 85,000 packets are needed. The IV of these packets can be randomly chosen. This is an improvement in the number of required frames by more than an  order of magnitude over the best known key-recovery attacks for WEP.
+On an IEEE 802.11g network, the number of frames required can be obtained by re-injection in less than a minute. The required computational effort is approximately 220 RC4 key setups, which on current desktop and laptop CPUs is negligible. 
+
+[Arbaugh2003] "Wireless security is different,” Computer Volume 36, Issue 8, Aug. 2003 Page(s):99 - 101
+[Welch2003] "Wireless security threat taxonomy,” Information Assurance Workshop, 2003. IEEE Systems, Man and Cybernetics Society 18-20 June 2003 Page(s):76 - 83
+[Earle2005] "Wireless Security Handbook,” Auerbach Publications 2005
+[Potter2003] "Wireless security's future,” Security & Privacy Magazine, IEEE Volume 1, Issue 4, July-Aug. 2003 Page(s):68 – 72
+[FMS2002] Scott R. Fluhrer, Itsik Mantin and Adi Shamir: Weaknesses in the Key Scheduling Algorithm of RC4. Selected Areas in Cryptography 2001: 1-24
+[Tews2007] E Tews, RP Weinmann, A Pyshkin: Breaking 104 bit WEP in less than 60 seconds - Information Security Applications, 2007 - Springer
