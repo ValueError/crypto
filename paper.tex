@@ -1,0 +1,90 @@
+% Koma-Script Basisklasse
+\documentclass[a4paper,12pt,pagesize,headsepline,bibtotoc,titlepage]{scrartcl}
+
+\usepackage[english]{babel}		
+\usepackage[utf8]{inputenc}		
+
+\usepackage[T1]{fontenc}			% T1-Schriften
+
+\usepackage{mathptmx}			% Times/Mathe \rmdefault
+\usepackage[scaled=.90]{helvet}	% Skalierte Helvetica \sfdefault
+\usepackage{courier}			% Courier \ttdefault
+
+% Zusatzpakete für mehr mathematische Symbole, Einfügen von Grafiken 
+% und bessere Bildunterschriften
+\usepackage{amsmath,amsthm,amsfonts,graphicx,caption}
+\usepackage{underscore}
+% Wenn man direkt mit dem pdflatex eine PDF-Datei erzeugt, sollten diese beiden Pakete eingebunden werden
+\usepackage{hyperref} % Hyperlinks anklickbar
+\usepackage{ae,aecompl} % bessere Bildschirmschriftarten usw.
+\usepackage{listings}
+\pagestyle{headings}
+
+% Abstand der Kopfzeile vom Text:
+\headsep4mm
+
+\typearea[current]{current}     % Satzspiegel neu berechnen
+
+% andere Bildunterschrift mit Hilfe von caption
+\renewcommand{\figurename}{Abb.}
+\renewcommand{\captionlabelfont}{\bf}
+
+\title{
+	\includegraphics*[width=0.4\textwidth]{clarkson.png}\\
+	\vspace{24pt}
+	Wireless Security
+}
+\subtitle{
+	Course\\
+	Cryptography\\
+	Fall 2014
+}
+\author{
+	Virginia Weidhaas\\[12pt]
+    Jihuang Hume\\[12pt]
+	Alfredo Chapa\\[12pt]	
+	Supervisor:\\
+	Christino Tamon
+}
+\date{\today}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+\section{Abstract}
+\section{Introduction}
+\newpage
+\section{WEP}
+
+\subsection{How it works}
+\subsection{Flaws}
+\subsection{Attacks on WEP}
+
+\newpage
+\section{WPA}
+\subsection{How it works}
+\subsection{Flaws}
+\subsection{Attacks on WEP}
+\newpage
+
+
+
+
+
+\newpage
+
+
+\begin{thebibliography}{1}
+\bibitem{tangledweb}
+Michael Zalewski.
+"The Tangled Web: A Guide to Securing Modern Web Applications",
+\emph{No Starch Press},
+ 2011.
+
+\bibitem{owasp}
+https://www.owasp.org/index.php/OWASP_AJAX_Security_Guidelines\#Always_return_JSON_with_an_Object_on_the_outside
+
+
+\end{thebibliography}
+\end{document}
