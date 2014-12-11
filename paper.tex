@@ -53,13 +53,52 @@
 \tableofcontents
 \newpage
 \section{Abstract}
-\section{Introduction}
+This paper focuses on home WiFi security.
+\newpage
+
+
+\marginpar{VW}
+\section{Common misbeliefs about Wifi-Security}
+
+WiFis are common in nearly every household. They are very popular, it is very easy to connect all of your favourite devices at home, e.g. tablets, phones, computers and printers.
+With an increasing amount of attacks on Wifis, many users are concerned and want to take measurements to prevent intruding.
+However, most of these security measures are mostly meaningless and only decrease the comfort in your own home.
+
+\minisec{Hiding your SSID}
+The idea behind this is, that a network which can't be seen can't be intruded.
+However, on  some devices invisible networks can still be seen (even if there is no name visible yet).Usually, the Service Set Identifier (SSID) is broadcasted by the router in its beacon, so users can find and connect to the nework.
+The SSID was never meant to be hidden (specified in the protocol).
+The router still has to put that information in all of its data packets etc, even if it doesn't broadcast it in its beacons anymore.
+It is fairly easy with tools like Kismet to discover hidden WiFis, and besides, whenever a computer with a saved WiFi is turned on it is trying to find its hidden Wifi, revealing the information to everyone with a net work scanner nearby. 
+Besides, having a hidden WiFi might even attract hackers because you might have sensitive data on it.
+\minisec{Enabling MAC-filtering}
+A unique Media Access Control (MAC) identifies each device in a wireless network to send and receive packets.
+There is the possibility to add a white list of MAC Adresses to the router. Then every device has to be added to that list before it can access the network, even if it knows the key.
+However, it is very easy to scan the network traffic with a sniffer, determine a valid MAC address and simply spoof it.
+Having a MAC filter makes only using the network harder for legitimate users and doesn't provide much extra security, since a real hacker would use the tools anyway.
+
+\minisec{Limit the router’s IP address pool}
+Every decive in the network has a Internet Protocol (IP) address. The purpose to do this is to limit the range of available IPs which can be assignened and therefore the amount of devices which can join the network. However, as in the point mentioned before, with a network anaylzer (given  the attacker is already in your network) you can analyze all the used IPs on a network, and assign one of them manually to his device. This security measure is meaningsless and makes it only harder for users which you actually want to have in your wifi, to connect to it.
+
+\minisec{Disable your router’s DHCP server}
+A router uses Dynamic Host Control Protocol (DHCP) to assign each device which joins the network dynamically an IP address. By disabling it, it should be reached that only users who know the IP range and their address can join the network since each IP has to be assigned manually to the device (similiar to a table with MAC-addresses). However, like in the point above, a simple network scan (given  the attacker is already in your network) will reveal the IP and the attacker can then just manually assign one of the used IPs to his devicer. Doing that, it makes it only harder to connect legitimate deviced to the network and does not increase security.
+\minisec{Reducing your routers transmission power}
+This has a very flawed logic, by reducing the transmission power it should be made harder to detect the network from outside of the home. However, if someone really wants to intrude he will use a special antenna which can detect even a bad signal, and in all other cases it will just be a struggle to work with your own wifi at home.
+\\
+\\
+All in all, these "protections" don't give any extra security, they make operating the WiFi only harder.
+But how can you protect your Wifi and make it really secure?
+The best way to do this is using a strong encryption, like WPA2 and a string password.
+However, many people still use WEP (although it was deprecated around 2003 as a security measure). In this paper, we will cover why still using WEP is a bad idea and which protocols are better for a safe WiFi.
+
 \newpage
 \section{WEP}
 
 \subsection{How it works}
 \subsection{Flaws}
 \subsection{Attacks on WEP}
+
+\marginpar{VW}
 \subsubsection{FMS attack}
 FMS was released by Fluhrer, Mantin and Shamir in 2001 \cite{fms} and is a statistical attack on WEP.
 The assumption is, that the attacker knows the IV (three bytes of the per packet key) and it uses weaknesses in RC4. Therefore he can reconstruct the key from a number of unencrypted messages.
@@ -126,9 +165,7 @@ In practice, approximately 50k-100k packets are needed for 104bit WEP key and le
 
 \bibitem{fms}
  Weaknesses in the Key Scheduling Algorithm of RC4.Shamir.
-\bibitem{tangledweb}
-Michael Zalewski.
-"The Tangled Web: A Guide to Securing Modern Web Applications",
+
 \emph{No Starch Press},
  2011.
 
@@ -137,6 +174,9 @@ http://eprint.iacr.org/2007/471.pdf
 
 \bibitem{dummies}
 http://www.dummies.com/how-to/content/understanding-wep-weaknesses.html
+
+\bibitem{pc-world}
+http://www.pcworld.com/article/2052158/5-wi-fi-security-myths-you-must-abandon-now.html
 
 \end{thebibliography}
 \end{document}
